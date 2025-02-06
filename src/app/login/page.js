@@ -15,7 +15,7 @@ export default function LoginPage() {
     setError("");
 
     try {
-      const response = await fetch(`${process.env.DB_WORKER_URL}/api/login`, {
+      const response = await fetch("https://testlokiworker.lokesh1992p.workers.dev/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
