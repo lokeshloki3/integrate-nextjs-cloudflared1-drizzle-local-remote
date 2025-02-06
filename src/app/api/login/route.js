@@ -1,5 +1,5 @@
 import { usersInfo } from "@/db/schema";
-import { createDB } from "@/db/clientlocal";
+// import { createDB } from "@/db/clientlocal";
 import { eq } from "drizzle-orm";
 import { handleErrorResponse } from "@/lib/utils";
 import { getDB } from "@/db/client";

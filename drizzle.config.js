@@ -9,7 +9,7 @@ export default defineConfig({
   dbCredentials: {
     // url: process.env.DATABASE_URL,  // Cloudflare D1 database URL - Optional for local dev (set automatically in production)
     accountId: process.env.CLOUDFLARE_ACCOUNT_ID,
-    databaseId: process.env.CLOUDFLARE_DATABASE_ID,
+    databaseId: process.env.DB_REMOTE_DATABASE_ID,
     token: process.env.CLOUDFLARE_API_TOKEN,
   },
 });

@@ -1,0 +1,12 @@
+name = "testlokiworker"
+main = "src/app/api/index.js"
+compatibility_date = "2025-01-09"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "$D1_DATABASE_NAME"
+database_id = "$DB_REMOTE_DATABASE_ID"
+
+migrations_dir = "./src/db/migrations"
+
