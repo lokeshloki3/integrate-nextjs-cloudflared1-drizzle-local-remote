@@ -42,3 +42,13 @@ export async function POST(req, context) {
     return handleErrorResponse(500, "Server error", corsHeaders(req));
   }
 }
+
+// Handle OPTIONS request for CORS preflight
+export async function OPTIONS(req) {
+  const headers = corsHeaders(req);
+
+  return new Response(null, {
+    status: 204,
+    headers: headers, // Include CORS headers here
+  });
+}
