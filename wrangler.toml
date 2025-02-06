@@ -10,3 +10,6 @@ database_id = "da2a7de2-acfa-4263-9fe9-99241c285c6b"
 
 migrations_dir = "./src/db/migrations"
 
+# wrangler.toml (wrangler v3.88.0^)
+[observability.logs]
+enabled = true
