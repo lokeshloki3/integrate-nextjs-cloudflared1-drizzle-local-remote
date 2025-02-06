@@ -5,8 +5,8 @@ compatibility_flags = ["nodejs_compat"]
 
 [[d1_databases]]
 binding = "DB"
-database_name = "$D1_DATABASE_NAME"
-database_id = "$DB_REMOTE_DATABASE_ID"
+database_name = "testloki"
+database_id = "da2a7de2-acfa-4263-9fe9-99241c285c6b"
 
 migrations_dir = "./src/db/migrations"
 
