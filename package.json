@@ -3,10 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:generate:dev": "drizzle-kit generate --config drizzle.local.config.js",
+    "db:generate:prod": "drizzle-kit generate --config drizzle.config.js",
+    "db:migrate:dev": "cross-env NODE_ENV=development drizzle-kit migrate --config drizzle.local.config.js",
+    "db:migrate:prod": "cross-env NODE_ENV=production drizzle-kit migrate --config drizzle.config.js",
+    "db:studio:dev": "cross-env NODE_ENV=development drizzle-kit studio --config drizzle.local.config.js",
+    "db:studio:prod": "cross-env NODE_ENV=production drizzle-kit studio --config drizzle.config.js",
+    "test": "vitest"
   },
   "dependencies": {
     "@cloudflare/next-on-pages": "^1.13.7",

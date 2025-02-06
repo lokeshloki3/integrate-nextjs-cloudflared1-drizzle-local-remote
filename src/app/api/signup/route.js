@@ -1,0 +1,46 @@
+import { usersInfo } from "@/db/schema";
+import { createDB } from "@/db/clientlocal";
+import { eq } from "drizzle-orm";
+import { handleErrorResponse } from "@/lib/utils";
+import { getDB } from "@/db/client";
+
+export const runtime = 'edge';
+
+export async function POST(req, context) {
+  try {
+    const db = getDB();
+    // const db = getDB(context.env);
+    // const db = createDB(context.env); //Local
+    const { email, password } = await req.json();
+
+    if (!email || !password) {
+      return handleErrorResponse(400, "Missing email or password");
+    }
+
+    // Check if email already exists
+    const existingUser = await db
+      .select()
+      .from(usersInfo)
+      .where(eq(usersInfo.email, email))
+      .get();
+    if (existingUser) {
+      return handleErrorResponse(400, "Email already in use");
+    }
+
+    // Save plain text password (not recommended for production)
+    await db.insert(usersInfo).values({ email, password }).run();
+
+    return new Response(
+      JSON.stringify({
+        success: true,
+        message: "User registered successfully",
+      }),
+      {
+        status: 201,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  } catch (error) {
+    return handleErrorResponse(500, "Server error");
+  }
+}
