@@ -50,7 +50,7 @@ export async function POST(req, context) {
 
 // Handle OPTIONS request for CORS preflight
 export async function OPTIONS(req) {
-  const headers = corsHeaders(req);
+  const headers = await corsHeaders(req);
 
   return new Response(null, {
     status: 204,

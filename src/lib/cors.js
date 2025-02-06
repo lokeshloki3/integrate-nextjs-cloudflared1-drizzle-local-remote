@@ -25,7 +25,7 @@ const allowedOrigins = [
     'https://integrate-nextjs-cloudflared1-drizzle-local-remote.pages.dev',  // Add your frontend URL here
 ];
 
-export function corsHeaders(request) {
+export async function corsHeaders(request) {
     const origin = request.headers.get('Origin');
     if (allowedOrigins.includes(origin)) {
         return {
